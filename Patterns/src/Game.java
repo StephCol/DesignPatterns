@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import Characters.Character;
 
 public class Game {
 
@@ -9,7 +9,7 @@ public class Game {
     }
 
     public void getGameStats(){
-        System.out.println(c1.getName() + " has " + c1.getSkills() + " skill \n" + "Score is " + c1.getScore());
+        System.out.println(c1.getDetails() + "\nScore: " + c1.getScore());
     }
 
 

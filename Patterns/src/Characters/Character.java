@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public abstract class Character{
 
     protected String name = "Unknown";
-    protected String description = "Unknown Characters.Character";
+    protected String description = "Character";
 
     public abstract int getScore();
 
@@ -14,8 +14,8 @@ public abstract class Character{
     }
 
     public String getDetails(){
-        return "Characters.Character Type: " + this.description
-                + "\nCharacters.Character Name: " + this.name
+        return "Character Type: " + this.description
+                + "\nCharacter Name: " + this.name
                 + "\nSkills: ";
     }
 }

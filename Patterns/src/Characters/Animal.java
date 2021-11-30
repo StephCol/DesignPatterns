@@ -3,7 +3,7 @@ package Characters;
 public class Animal extends Character {
 
     public Animal(){
-        description = "Animal";
+        description = "Characters.Animal";
     }
 
     @Override

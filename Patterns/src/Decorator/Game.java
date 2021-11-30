@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+package Decorator;
 
 public class Game {
 
@@ -9,7 +9,7 @@ public class Game {
     }
 
     public void getGameStats(){
-        System.out.println(c1.getName() + " has " + c1.getSkills() + " skill \n" + "Score is " + c1.getScore());
+        System.out.println(c1.getName() + " has " + c1.getDetails() + " \n" + "Score is " + c1.getScore() + "\n\n");
     }
 
 

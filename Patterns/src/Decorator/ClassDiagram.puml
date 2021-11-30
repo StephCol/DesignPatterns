@@ -1,0 +1,92 @@
+@startuml
+skinParam classAttributeIconSize 0
+
+class Game{
++ getGameStats(): void
+}
+
+Game "1..*" *-- Character
+
+abstract class Character{
+    #name: String
+    #characterType: String
+    #SubscriptionType : String
+
+    +setName(String s) : void
+    +getName() : String
+    +setSubscriptionType(String s) : void
+    +getSubscriptionType() : String
+    {abstract} +getDetails() : String
+    {abstract} +getScore() : int
+}
+
+class Human{
+    + getDetails(): void
+    + getScore() : int
+}
+
+class Robot{
+    + getDetails(): void
+    + getScore() : int
+}
+
+class Animal{
+    + getDetails(): void
+    + getScore() : int
+}
+
+class Psychic{
+    +getScore(): int
+    +getDetails(): String
+ }
+
+class ShapeShifting{
+    +getScore(): int
+    +getDetails(): String
+}
+
+class Flight{
+     +getScore(): int
+     +getDetails(): String
+}
+
+class Invisibility{
+    +getScore(): int
+    +getDetails(): String
+}
+
+class TimeTravel{
+    +getScore(): int
+    +getDetails(): String
+}
+
+class Teleportation{
+    +getScore(): int
+    +getDetails(): String
+}
+
+Character <|-- Human
+Character <|-- Robot
+Character <|-- Animal
+
+Animal *-- Psychic
+Animal *-- Flight
+Animal *-- ShapeShifting
+Animal *-- TimeTravel
+Animal *-- Teleportation
+
+Robot *-- Psychic
+Robot *-- Flight
+Robot *-- Invisibility
+Robot *-- ShapeShifting
+Robot *-- Teleportation
+
+Human *-- Invisibility
+Human *-- ShapeShifting
+Human *-- Flight
+Human *-- TimeTravel
+Human *-- Teleportation
+Human *-- Psychic
+
+
+@enduml

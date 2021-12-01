@@ -1,5 +1,7 @@
 package Decorator;
 
+import Decorator.Characters.Character;
+
 public class Game {
 
     private Character c1;

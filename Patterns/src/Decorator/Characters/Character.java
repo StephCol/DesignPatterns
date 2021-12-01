@@ -1,6 +1,4 @@
-package Decorator;
-
-import java.util.ArrayList;
+package Decorator.Characters;
 
 public abstract class Character{
 
@@ -24,7 +22,12 @@ public abstract class Character{
         return subscriptionType;
     }
 
-    public abstract String getDetails();
+    public String getDetails(){
+        return "Character Type: " + this.characterType
+                + "\nCharacter Name: " + this.name
+                + "\nSkills: ";
+    }
+
     public abstract int getScore();
 
 }

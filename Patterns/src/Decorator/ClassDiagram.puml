@@ -5,88 +5,74 @@ class Game{
 + getGameStats(): void
 }
 
-Game "1..*" *-- Character
+Game "1..*" *- Characters.Character
 
-abstract class Character{
+abstract class Characters.Character{
     #name: String
     #characterType: String
-    #SubscriptionType : String
+    #subscriptionType : String
 
     +setName(String s) : void
     +getName() : String
     +setSubscriptionType(String s) : void
     +getSubscriptionType() : String
-    {abstract} +getDetails() : String
+    +getDetails() : String
     {abstract} +getScore() : int
 }
 
-class Human{
+
+abstract class Skills.SkillsDecorator{
+    +skillDescription: String
+
+    +{abstract} getScore(): String
+    +{abstract} getDetails(): String
+    +getSubscriptionError() : void
+    #isPremium(): Boolean
+    #isExclusive(): Boolean
+}
+
+Characters.Character <|-- Skills.SkillsDecorator
+Skills.SkillsDecorator ---> Characters.Character
+
+class Characters.Human{
+    + getScore() : int
+}
+
+class Characters.Robot{
     + getDetails(): void
     + getScore() : int
 }
 
-class Robot{
+class Characters.Animal{
     + getDetails(): void
     + getScore() : int
 }
 
-class Animal{
-    + getDetails(): void
-    + getScore() : int
-}
 
-class Psychic{
-    +getScore(): int
-    +getDetails(): String
- }
 
-class ShapeShifting{
+class Skills.Invisibility{
     +getScore(): int
     +getDetails(): String
 }
 
-class Flight{
-     +getScore(): int
-     +getDetails(): String
-}
-
-class Invisibility{
+class Skills.TimeTravel{
     +getScore(): int
     +getDetails(): String
 }
 
-class TimeTravel{
+class Skills.Teleportation{
     +getScore(): int
     +getDetails(): String
 }
 
-class Teleportation{
-    +getScore(): int
-    +getDetails(): String
-}
+Characters.Character <|-- Characters.Human
+Characters.Character <|-- Characters.Robot
+Characters.Character <|-- Characters.Animal
 
-Character <|-- Human
-Character <|-- Robot
-Character <|-- Animal
+Skills.SkillsDecorator <|-- Skills.Teleportation
+Skills.SkillsDecorator <|-- Skills.TimeTravel
+Skills.SkillsDecorator <|-- Skills.Invisibility
 
-Animal *-- Psychic
-Animal *-- Flight
-Animal *-- ShapeShifting
-Animal *-- TimeTravel
-Animal *-- Teleportation
-
-Robot *-- Psychic
-Robot *-- Flight
-Robot *-- Invisibility
-Robot *-- ShapeShifting
-Robot *-- Teleportation
-
-Human *-- Invisibility
-Human *-- ShapeShifting
-Human *-- Flight
-Human *-- TimeTravel
-Human *-- Teleportation
-Human *-- Psychic
 
 
 @enduml

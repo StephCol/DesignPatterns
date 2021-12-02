@@ -2,19 +2,12 @@ package Decorator.Skills;
 
 import Decorator.Characters.Character;
 
-public class Invisibility extends SkillsDecorator {
+public class Invisibility extends PremiumSkills {
 
     public Invisibility(Character c){
         character = c;
-        skillDescription = "\nInvisibility";
+        skillDescription = "Invisibility";
+        score = 9;
     }
 
-    @Override
-    public int getScore() {
-        return character.getScore() + 5;
-    }
-    @Override
-    public String getDetails() {
-        return character.getDetails() + skillDescription;
-    }
 }

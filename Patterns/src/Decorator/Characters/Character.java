@@ -1,11 +1,12 @@
 package Decorator.Characters;
 
+import Decorator.Subscription;
+
 public abstract class Character{
 
     protected String name;
     protected String characterType;
-    protected String subscriptionType;
-
+    protected Subscription subscriptionType;
 
     public String getName(){
         return this.name;
@@ -14,11 +15,11 @@ public abstract class Character{
         this.name = name;
     }
 
-    public void setSubscriptionType(String subscriptionType) {
+    public void setSubscriptionType(Subscription subscriptionType) {
         this.subscriptionType = subscriptionType;
     }
 
-    public String getSubscriptionType() {
+    public Subscription getSubscriptionType() {
         return subscriptionType;
     }
 

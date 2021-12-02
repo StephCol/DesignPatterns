@@ -11,7 +11,7 @@ public class Game {
     }
 
     public void getGameStats(){
-        System.out.println(c1.getName() + " has " + c1.getDetails() + " \n" + "Score is " + c1.getScore() + "\n\n");
+        System.out.println(c1.getDetails() + " \n" + "Score is " + c1.getScore() + "\n\n");
     }
 
 

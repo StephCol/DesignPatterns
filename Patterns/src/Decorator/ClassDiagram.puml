@@ -1,21 +1,14 @@
 @startuml
 skinParam classAttributeIconSize 0
 
-class Game{
-+ getGameStats(): void
-}
-
-Game "1..*" *- Characters.Character
-
 abstract class Characters.Character{
     #name: String
     #characterType: String
-    #subscriptionType : String
 
     +setName(String s) : void
     +getName() : String
     +setSubscriptionType(String s) : void
-    +getSubscriptionType() : String
+    +getSubscriptionType() : Subscription
     +getDetails() : String
     {abstract} +getScore() : int
 }
@@ -23,12 +16,27 @@ abstract class Characters.Character{
 
 abstract class Skills.SkillsDecorator{
     +skillDescription: String
+    +score: int
 
-    +{abstract} getScore(): String
+    +{abstract} getScore(): int
     +{abstract} getDetails(): String
-    +getSubscriptionError() : void
     #isPremium(): Boolean
     #isExclusive(): Boolean
+}
+
+class Skills.PremiumSkills{
+    + getScore(): int
+    +getDetails(): String
+}
+
+class Skills.FreeSkills{
+    + getScore(): int
+    +getDetails(): String
+}
+
+class Skills.ExclusiveSkills{
+    + getScore(): int
+    +getDetails(): String
 }
 
 Characters.Character <|-- Skills.SkillsDecorator
@@ -48,30 +56,26 @@ class Characters.Animal{
     + getScore() : int
 }
 
-
-
-class Skills.Invisibility{
-    +getScore(): int
-    +getDetails(): String
+enum Subscription{
+FREE
+PREMIUM
+EXCLUSIVE
 }
 
-class Skills.TimeTravel{
-    +getScore(): int
-    +getDetails(): String
-}
+Characters.Character *-- Subscription
 
-class Skills.Teleportation{
-    +getScore(): int
-    +getDetails(): String
-}
 
 Characters.Character <|-- Characters.Human
 Characters.Character <|-- Characters.Robot
 Characters.Character <|-- Characters.Animal
 
-Skills.SkillsDecorator <|-- Skills.Teleportation
-Skills.SkillsDecorator <|-- Skills.TimeTravel
-Skills.SkillsDecorator <|-- Skills.Invisibility
+Skills.SkillsDecorator <|-- Skills.PremiumSkills
+Skills.SkillsDecorator <|-- Skills.ExclusiveSkills
+Skills.SkillsDecorator <|-- Skills.FreeSkills
+
+Skills.ExclusiveSkills <|-- Skills.Teleportation
+Skills.FreeSkills <|-- Skills.TimeTravel
+Skills.PremiumSkills <|-- Skills.Invisibility
 
 
 

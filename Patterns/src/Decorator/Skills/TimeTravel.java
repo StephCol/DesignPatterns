@@ -2,18 +2,11 @@ package Decorator.Skills;
 
 import Decorator.Characters.Character;
 
-public class TimeTravel extends SkillsDecorator{
+public class TimeTravel extends FreeSkills{
     public TimeTravel(Character c){
         character = c;
-        skillDescription = "\nTimeTravel";
+        skillDescription = "TimeTravel";
+        score = 8;
     }
 
-    @Override
-    public int getScore() {
-        return character.getScore() + 5;
-    }
-    @Override
-    public String getDetails() {
-        return character.getDetails() + skillDescription;
-    }
 }

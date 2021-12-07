@@ -1,5 +1,4 @@
 package Decorator.Characters;
-
 import Decorator.Subscription;
 
 public abstract class Character{
@@ -8,9 +7,6 @@ public abstract class Character{
     protected String characterType;
     protected Subscription subscriptionType;
 
-    public String getName(){
-        return this.name;
-    }
     public void setName(String name){
         this.name = name;
     }

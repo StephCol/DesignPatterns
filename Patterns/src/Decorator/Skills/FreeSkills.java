@@ -7,6 +7,6 @@ public class FreeSkills extends SkillsDecorator{
     }
     @Override
     public String getDetails() {
-        return character.getDetails() + "\n " + skillDescription + "\n";
+        return character.getDetails() + "\n" + skillDescription ;
     }
 }

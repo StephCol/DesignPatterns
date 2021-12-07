@@ -4,14 +4,27 @@ import Decorator.Characters.Character;
 
 public class Game {
 
-    private Character c1;
+    private Character character;
+    private volatile static Game gameInstance = new Game();
 
-    public Game(Character c){
-        c1 = c;
+    private Game(){ }
+
+    public static Game getGameInstance() {
+        if(gameInstance == null){
+            synchronized (Game.class){
+                if (gameInstance == null)
+                    gameInstance = new Game();
+            }
+        }
+        return gameInstance;
     }
 
-    public void getGameStats(){
-        System.out.println(c1.getDetails() + " \n" + "Score is " + c1.getScore() + "\n\n");
+    public void assignCharacter(Character character){
+        this.character = character;
+    }
+
+        public void getGameStats(){
+        System.out.println(character.getDetails() + " \n" + "Score is " + character.getScore() + "\n\n");
     }
 
 

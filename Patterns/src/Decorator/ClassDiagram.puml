@@ -1,6 +1,16 @@
 @startuml
 skinParam classAttributeIconSize 0
 
+class Game{
+{static} -gameInstance: Game
+{static} +getGameInstance(): Game
++assignCharacter(Character c): void
++getGameStats(): void
+
+}
+
+Game *-- Characters.Character
+
 abstract class Characters.Character{
     #name: String
     #characterType: String

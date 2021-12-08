@@ -1,4 +1,4 @@
-package Decorator.Skills;
+package Game_Decorator_Singleton.Skills;
 
 public class FreeSkills extends SkillsDecorator{
     @Override

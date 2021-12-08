@@ -1,4 +1,4 @@
-package Decorator;
+package Game_Decorator_Singleton;
 
 public enum Subscription {
     FREE,

@@ -1,4 +1,4 @@
-package Decorator.Characters;
+package Game_Decorator_Singleton.Characters;
 
 public class Animal extends Character {
 

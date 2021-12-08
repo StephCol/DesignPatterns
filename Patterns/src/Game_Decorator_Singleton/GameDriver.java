@@ -1,8 +1,8 @@
-package Decorator;
+package Game_Decorator_Singleton;
 
-import Decorator.Characters.*;
-import Decorator.Characters.Character;
-import Decorator.Skills.*;
+import Game_Decorator_Singleton.Characters.*;
+import Game_Decorator_Singleton.Characters.Character;
+import Game_Decorator_Singleton.Skills.*;
 
 public class GameDriver {
     public static void main(String[] args) {

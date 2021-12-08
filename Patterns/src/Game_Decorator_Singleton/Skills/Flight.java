@@ -1,5 +1,5 @@
-package Decorator.Skills;
-import Decorator.Characters.Character;
+package Game_Decorator_Singleton.Skills;
+import Game_Decorator_Singleton.Characters.Character;
 
 public class Flight extends PremiumSkills {
 

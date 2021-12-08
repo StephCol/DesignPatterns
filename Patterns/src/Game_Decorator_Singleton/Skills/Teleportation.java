@@ -1,6 +1,6 @@
-package Decorator.Skills;
+package Game_Decorator_Singleton.Skills;
 
-import Decorator.Characters.Character;
+import Game_Decorator_Singleton.Characters.Character;
 
 public class Teleportation extends ExclusiveSkills{
     public Teleportation(Character c){

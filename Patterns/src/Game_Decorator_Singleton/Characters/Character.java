@@ -1,5 +1,5 @@
-package Decorator.Characters;
-import Decorator.Subscription;
+package Game_Decorator_Singleton.Characters;
+import Game_Decorator_Singleton.Subscription;
 
 public abstract class Character{
 

@@ -1,9 +1,9 @@
-package Decorator.Skills;
+package Game_Decorator_Singleton.Skills;
 
-public class PremiumSkills extends SkillsDecorator{
+public class ExclusiveSkills extends SkillsDecorator{
     @Override
     public int getScore() {
-        if(isPremium()){
+        if(isExclusive()){
             return character.getScore() + score;
         }
         else
@@ -12,10 +12,10 @@ public class PremiumSkills extends SkillsDecorator{
 
     @Override
     public String getDetails()  {
-        if(isPremium() ){
+        if(isExclusive()){
             return character.getDetails() + "\n" + skillDescription;
         }
         else
-            return character.getDetails() + "\nERROR - Upgrade to PREMIUM to access " + skillDescription;
+            return character.getDetails() + "\nERROR - Upgrade to EXCLUSIVE to access " + skillDescription;
     }
 }

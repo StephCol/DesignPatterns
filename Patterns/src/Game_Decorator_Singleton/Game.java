@@ -1,6 +1,6 @@
-package Decorator;
+package Game_Decorator_Singleton;
 
-import Decorator.Characters.Character;
+import Game_Decorator_Singleton.Characters.Character;
 
 public class Game {
 

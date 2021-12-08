@@ -1,6 +1,6 @@
-package Decorator.Skills;
-import Decorator.Characters.Character;
-import Decorator.Subscription;
+package Game_Decorator_Singleton.Skills;
+import Game_Decorator_Singleton.Characters.Character;
+import Game_Decorator_Singleton.Subscription;
 
 public abstract class SkillsDecorator extends Character {
 

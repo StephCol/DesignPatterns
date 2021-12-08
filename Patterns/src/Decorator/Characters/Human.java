@@ -2,8 +2,8 @@ package Decorator.Characters;
 
 public class Human extends Character {
 
-    public Human(){
-        characterType = "Human";
+    protected Human(){
+        characterType = CharacterType.HUMAN;
     }
 
     @Override

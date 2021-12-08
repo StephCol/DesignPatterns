@@ -2,8 +2,8 @@ package Decorator.Characters;
 
 public class Animal extends Character {
 
-    public Animal(){
-        characterType = "Animal";
+    protected Animal(){
+        characterType = CharacterType.ANIMAL;
     }
     public int getScore(){
         return 0;

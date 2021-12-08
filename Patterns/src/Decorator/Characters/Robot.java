@@ -2,8 +2,8 @@ package Decorator.Characters;
 
 public class Robot extends Character {
 
-    public Robot(){
-        characterType = "Robot";
+    protected Robot(){
+        characterType = CharacterType.ROBOT;
     }
 
     public int getScore(){

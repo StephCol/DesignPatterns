@@ -1,14 +1,12 @@
 package Decorator;
 
-import Decorator.Characters.Animal;
+import Decorator.Characters.*;
 import Decorator.Characters.Character;
-import Decorator.Characters.Human;
-import Decorator.Characters.Robot;
 import Decorator.Skills.*;
 
 public class GameDriver {
     public static void main(String[] args) {
-        Character dragon = new Animal();
+        Character dragon = Character.getCharacterInstance(CharacterType.ANIMAL);
         dragon.setName("Drago");
         dragon.setSubscriptionType(Subscription.EXCLUSIVE);
         dragon = new Teleportation(dragon);
@@ -18,7 +16,8 @@ public class GameDriver {
         g1.assignCharacter(dragon);
         g1.getGameStats();
 
-        Game g2 = Game.getGameInstance();
-        g2.getGameStats();
+        Character human = Character.getCharacterInstance(CharacterType.HUMAN);
+        System.out.println(human.getDetails()); //returns Animal Character first made
+
     }
 }

@@ -23,7 +23,7 @@ public class Game {
         this.character = character;
     }
 
-        public void getGameStats(){
+    public void getGameStats(){
         System.out.println(character.getDetails() + " \n" + "Score is " + character.getScore() + "\n\n");
     }
 

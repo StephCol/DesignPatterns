@@ -13,8 +13,9 @@ Game *-- Characters.Character
 
 abstract class Characters.Character{
     #name: String
-    #characterType: String
+    {static} #characterInstance: Character
 
+    {static} +getCharacterInstance(): Character
     +setName(String s) : void
     +getName() : String
     +setSubscriptionType(String s) : void
@@ -66,13 +67,20 @@ class Characters.Animal{
     + getScore() : int
 }
 
-enum Subscription{
+enum Characters.Subscription{
 FREE
 PREMIUM
 EXCLUSIVE
 }
+enum Characters.CharacterType{
+ANIMAL
+HUMAN
+ROBOT
+{abstract} +getCharacter(): Character
+}
 
-Characters.Character *-- Subscription
+Characters.Character *-- Characters.Subscription
+Characters.Character *-- Characters.CharacterType
 
 
 Characters.Character <|-- Characters.Human

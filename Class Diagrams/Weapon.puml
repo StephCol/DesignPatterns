@@ -1,0 +1,40 @@
+@startuml
+skinParam classAttributeIconSize 0
+
+interface Weapon{
++getType(): String
++getPoints(): int
++execute(): String
+
+}
+
+abstract class Gun{
+#weaponType: String
+#points: int
+
++getType(): String
++getPoints(): int
+{abstract} +execute(): String
+}
+
+abstract class Knife{
+#weaponType: String
+#points: int
+
++getType(): String
++getPoints(): int
+{abstract} +execute(): String
+}
+
+Weapon <|-- Gun
+Weapon <|-- Knife
+
+Knife <|-- PocketKnife
+
+Gun <|-- HandGun
+Gun <|-- MachineGun
+Gun <|-- PelletGun
+
+
+
+@enduml

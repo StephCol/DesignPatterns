@@ -1,0 +1,77 @@
+@startuml
+skinParam classAttributeIconSize 0
+
+class Game{
+{static} -gameInstance: Game
+{static} +getGameInstance(): Game
++assignCharacter(Character c): void
++getGameStats(): void
+
+}
+note left
+Game class has private constructor
+
+For Thread Safety:
+     ""gameInstance""  is volatile
+      ""getGameInstance()"" is synchronized
+end note
+
+Game *-- Characters.Character
+
+abstract class Characters.Character{
+    #name: String
+    {static}  #characterInstance: Character
+
+    {static} +getCharacterInstance(): Character
+    +setName(String s) : void
+    +getName() : String
+    +setSubscriptionType(String s) : void
+    +getSubscriptionType() : Subscription
+    +getDetails() : String
+    {abstract} +getScore() : int
+}
+
+note right
+Character class has private constructor
+
+For Thread Safety:
+     ""characterInstance""  is volatile
+      ""getCharacterInstance()"" is synchronized
+end note
+
+class Characters.Human{
+    + getScore() : int
+}
+
+class Characters.Robot{
+    + getScore() : int
+}
+
+class Characters.Animal{
+    + getScore() : int
+}
+
+enum Characters.Subscription{
+FREE
+PREMIUM
+EXCLUSIVE
+}
+enum Characters.CharacterType{
+ANIMAL
+HUMAN
+ROBOT
+{abstract} +getCharacter(): Character
+}
+
+Characters.Character *- Characters.Subscription
+Characters.CharacterType  -* Characters.Character
+
+
+Characters.Character <|-- Characters.Human
+Characters.Character <|-- Characters.Robot
+Characters.Character <|-- Characters.Animal
+
+
+
+
+@enduml

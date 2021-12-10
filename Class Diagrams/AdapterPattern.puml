@@ -1,0 +1,73 @@
+@startuml
+skinParam classAttributeIconSize 0
+
+
+abstract class Characters{
+
+}
+note right
+  Client
+  end note
+
+
+
+abstract class SkillsDecorator{
+    +skillDescription: String
+    +score: int
+
+    +{abstract} getScore(): int
+    +{abstract} getDetails(): String
+}
+note right
+  Target
+  end note
+
+
+Characters <|-- SkillsDecorator
+SkillsDecorator --> Characters
+
+
+skinParam classAttributeIconSize 0
+
+abstract class Weapon{
+#weaponType: String
+#points: int
+#subscriptionType: String
+
++getType(): String
++getPoints(): int
+{abstract}+execute(): String
++getSubscriptionType(): String
+
+}
+note right
+  Adaptee
+  end note
+
+class WeaponAdapter{
+-isWeaponPremium(): Boolean
+-isWeaponExclusive(): Boolean
+
+}
+note right
+  Adapter
+  end note
+
+WeaponAdapter --|> SkillsDecorator
+WeaponAdapter *-- Weapon
+
+abstract class Gun{
+{abstract} +execute(): String
+}
+
+abstract class Knife{
+{abstract} +execute(): String
+}
+
+Weapon <|-- Gun
+Weapon <|-- Knife
+
+
+
+
+@enduml

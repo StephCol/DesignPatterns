@@ -1,28 +1,23 @@
 @startuml
 skinParam classAttributeIconSize 0
 
-interface Weapon{
+abstract class Weapon{
+#weaponType: String
+#points: int
+#subscriptionType: String
+
 +getType(): String
 +getPoints(): int
-+execute(): String
+{abstract}+execute(): String
++getSubscriptionType(): String
 
 }
 
 abstract class Gun{
-#weaponType: String
-#points: int
-
-+getType(): String
-+getPoints(): int
 {abstract} +execute(): String
 }
 
 abstract class Knife{
-#weaponType: String
-#points: int
-
-+getType(): String
-+getPoints(): int
 {abstract} +execute(): String
 }
 

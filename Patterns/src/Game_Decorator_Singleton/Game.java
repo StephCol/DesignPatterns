@@ -20,7 +20,8 @@ public class Game {
     }
 
     public void assignCharacter(Character character){
-        this.character = character;
+        if(this.character == null)
+            this.character = character;
     }
 
     public void getGameStats(){

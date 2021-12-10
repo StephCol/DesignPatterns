@@ -1,0 +1,78 @@
+@startuml
+skinParam classAttributeIconSize 0
+
+class Game{
++getGameStats(): void
+
+}
+
+Game *- Characters.Character
+
+abstract class Characters.Character{
+    #name: String
+    #characterType: String
+    #subscriptionType: String
+
+    +setName(String s) : void
+    +getName() : String
+    +setSubscriptionType(String s) : void
+    +getSubscriptionType() : String
+    +getDetails() : String
+    {abstract} +getScore() : int
+}
+
+
+abstract class Skills.SkillsDecorator{
+    +skillDescription: String
+
+    +{abstract} getScore(): int
+    +{abstract} getDetails(): String
+    +getSubscriptionError(): void
+    #isPremium(): Boolean
+    #isExclusive(): Boolean
+}
+
+
+Characters.Character <|-- Skills.SkillsDecorator
+Skills.SkillsDecorator ---> Characters.Character
+
+class Characters.Human{
+    + getDetails(): void
+    + getScore() : int
+}
+
+class Characters.Robot{
+    + getDetails(): void
+    + getScore() : int
+}
+
+class Characters.Animal{
+    + getDetails(): void
+    + getScore() : int
+}
+
+class Skills.Teleportation{
+    + getDetails(): void
+    + getScore() : int
+}
+class Skills.TimeTravel{
+    + getDetails(): void
+    + getScore() : int
+}
+
+class Skills.Invisibility{
+    + getDetails(): void
+    + getScore() : int
+}
+
+Characters.Character <|-- Characters.Human
+Characters.Character <|-- Characters.Robot
+Characters.Character <|-- Characters.Animal
+
+Skills.SkillsDecorator <|-- Skills.Teleportation
+Skills.SkillsDecorator <|-- Skills.TimeTravel
+Skills.SkillsDecorator <|-- Skills.Invisibility
+
+
+
+@enduml

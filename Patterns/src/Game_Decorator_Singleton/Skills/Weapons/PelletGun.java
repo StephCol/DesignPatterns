@@ -1,4 +1,4 @@
-package Game_Decorator_Singleton.Skills;
+package Game_Decorator_Singleton.Skills.Weapons;
 
 public class PelletGun extends Gun {
 

@@ -1,5 +1,6 @@
 package Game_Decorator_Singleton.Skills;
 import Game_Decorator_Singleton.Characters.Character;
+import Game_Decorator_Singleton.Skills.Weapons.Weapon;
 import Game_Decorator_Singleton.Subscription;
 
 public class WeaponAdapter extends SkillsDecorator {

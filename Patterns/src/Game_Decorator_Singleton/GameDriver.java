@@ -3,6 +3,8 @@ package Game_Decorator_Singleton;
 import Game_Decorator_Singleton.Characters.*;
 import Game_Decorator_Singleton.Characters.Character;
 import Game_Decorator_Singleton.Skills.*;
+import Game_Decorator_Singleton.Skills.Weapons.MachineGun;
+import Game_Decorator_Singleton.Skills.Weapons.PocketKnife;
 
 
 public class GameDriver {

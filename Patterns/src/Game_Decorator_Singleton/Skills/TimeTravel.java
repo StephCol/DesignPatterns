@@ -7,6 +7,7 @@ public class TimeTravel extends FreeSkills{
         character = c;
         skillDescription = "TimeTravel";
         score = 8;
+        subscriptionType = c.getSubscriptionType();
     }
 
 }

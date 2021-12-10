@@ -8,5 +8,6 @@ public class Shapeshifing extends ExclusiveSkills{
         character = c;
         skillDescription = "Shapeshifing";
         score = 14;
+        subscriptionType = c.getSubscriptionType();
     }
 }

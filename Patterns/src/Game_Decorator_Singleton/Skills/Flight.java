@@ -7,5 +7,6 @@ public class Flight extends PremiumSkills {
         character = c;
         skillDescription = "Flight";
         score = 12;
+        subscriptionType = c.getSubscriptionType();
     }
 }

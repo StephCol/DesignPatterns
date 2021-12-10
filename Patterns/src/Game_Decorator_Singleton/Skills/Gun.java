@@ -1,16 +1,13 @@
 package Game_Decorator_Singleton.Skills;
 
-public abstract class Gun implements Weapon {
-    protected String weaponType = " Gun";
-    protected int points;
+public abstract class Gun extends Weapon {
 
-    public String getType(){
-        return weaponType;
-    }
-
-    public int getPoints(){
-        return points;
+    public Gun(){
+        weaponType = " Gun";
+        subscriptionType = "Premium";
     }
 
     public abstract String execute();
+
+
 }

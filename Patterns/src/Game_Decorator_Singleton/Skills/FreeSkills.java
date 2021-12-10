@@ -3,7 +3,7 @@ package Game_Decorator_Singleton.Skills;
 public class FreeSkills extends SkillsDecorator{
     @Override
     public int getScore() {
-        return character.getScore() + 5;
+        return character.getScore() + score;
     }
     @Override
     public String getDetails() {

@@ -3,7 +3,7 @@ package Game_Decorator_Singleton.Skills;
 public class PremiumSkills extends SkillsDecorator{
     @Override
     public int getScore() {
-        if(isPremium()){
+        if(isPremium() || isExclusive()){
             return character.getScore() + score;
         }
         else
@@ -12,7 +12,7 @@ public class PremiumSkills extends SkillsDecorator{
 
     @Override
     public String getDetails()  {
-        if(isPremium() ){
+        if(isPremium() || isExclusive()){
             return character.getDetails() + "\n" + skillDescription;
         }
         else

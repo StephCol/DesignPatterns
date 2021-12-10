@@ -7,6 +7,7 @@ public class Psychic extends PremiumSkills{
         character = c;
         skillDescription = "Psychic";
         score = 10;
+        subscriptionType = character.getSubscriptionType();
     }
 
 }

@@ -8,6 +8,7 @@ public class Invisibility extends PremiumSkills {
         character = c;
         skillDescription = "Invisibility";
         score = 9;
+        subscriptionType = c.getSubscriptionType();
     }
 
 }

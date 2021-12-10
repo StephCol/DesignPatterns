@@ -7,5 +7,7 @@ public class Teleportation extends ExclusiveSkills{
         character = c;
         skillDescription = "Teleportation";
         score = 17;
+        subscriptionType = c.getSubscriptionType();
+        System.out.println(c.getSubscriptionType());
     }
 }

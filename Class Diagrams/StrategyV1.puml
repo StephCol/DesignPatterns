@@ -1,0 +1,58 @@
+@startuml
+skinParam classAttributeIconSize 0
+
+class Game{
+}
+
+Game *-- Character
+
+note "Methods duplicated" as N1
+
+Animal .. N1
+Human .. N1
+
+abstract class Character{
+//some attributes
+    +getCharacterDetails() : String
+    {abstract} +talk() : void
+    +walk() : void
+    {abstract} +eat() : void
+}
+
+note right of Character::"getCharac"
+  Conditional statement with
+  <b>OCP</b> violation
+end note
+
+enum CharacterType{
+ANIMAL
+HUMAN
+ROBOT
+}
+
+Character *-- CharacterType
+
+class Human{
+    +talk() : void
+    +eat() : void
+}
+
+class Robot{
+    +talk() : void
+    +eat() : void
+}
+note left
+Refused Bequests
+end note
+
+class Animal{
+    +talk() : void
+    +eat() : void
+}
+
+
+Character <|-- Human
+Character <|-- Robot
+Character <|-- Animal
+
+@enduml

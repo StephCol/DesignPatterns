@@ -1,0 +1,55 @@
+@startuml
+skinParam classAttributeIconSize 0
+
+class Game{
+}
+
+Game *-- Character
+
+abstract class Character{
+    {abstract} +getCharacterDetails() : String
+    +walk(): void
+}
+
+enum CharacterType{
+ANIMAL
+HUMAN
+ROBOT
+}
+
+CharacterType --* Character
+
+interface TalkBehaviour{
+{abstract} +talk(): void
+}
+
+TalkBehaviour -* Character
+
+class MakeSound implements TalkBehaviour
+class DisplayOnScreen implements TalkBehaviour
+
+interface RefuelBehaviour{
+    {abstract} + refuel(): void
+}
+
+class Eat implements RefuelBehaviour
+class Charge implements RefuelBehaviour
+
+Character *-  RefuelBehaviour
+
+class Human{
+}
+
+class Robot{
+}
+
+class Animal{
+}
+
+
+Character <|.. Human
+Character <|.. Robot
+Character <|.. Animal
+
+
+@enduml

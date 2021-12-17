@@ -1,0 +1,48 @@
+@startuml
+
+skinParam classAttributeIconSize 0
+
+class Jobseeker{
+-notification: String
+
++update(): void
++display(): void
+}
+
+class Employer{
+    -notification: String
+
+    +update(): void
+    +display(): void
+}
+
+enum JobTitle
+hide JobTitle members
+
+
+JobTitle "1" *-- "*" Employer
+JobTitle --* Jobseeker
+
+
+
+Jobseeker *- RecruitmentAgency
+RecruitmentAgency *- Employer
+
+Employer *-- RecruitmentAgency
+RecruitmentAgency *-- Jobseeker
+
+class RecruitmentAgency{
+-jobseekers: List<Jobseeker>
+-employers: List<Employers>
+-notification: String
+
++createJobseeker(): void
++createEmployer(): void
++registerJobseeker(jobseeker: Jobseeker): void
++registerEmployer(employer: Employer): void
+-notifyClients(): void
++setNotification(String n): void
+-getNotificationLog(): void
+}
+
+@enduml

@@ -1,0 +1,103 @@
+@startuml
+
+skinParam classAttributeIconSize 0
+
+class RecruitmentAgency{
+}
+
+interface AgencyPublisher{
++registerClient(AgencySubscribers client): void
++removeClient(AgencySubscribers client)): void
++notifyClients(): void
++setNotification(String n): void
+}
+
+AgencyPublisher <|.. EmployerPublisher
+AgencyPublisher <|.. JobSeekerPublisher
+
+class EmployerPublisher{
++ employers:  List<EmployerSubscriber>
+}
+
+class JobSeekerPublisher{
++ jobseeker:  List<JobseekerSubscriber>
+}
+
+EmployerPublisher <--* EmployerSubscriber
+JobSeekerPublisher <--* JobseekerSubscriber
+
+interface AgencySubscribers{
++update() : void
+}
+
+class EmployerSubscriber{}
+
+class JobseekerSubscriber{}
+
+RecruitmentAgency "1" *--> "*" AgencyPublisher
+
+AgencySubscribers <|.. EmployerSubscriber
+AgencySubscribers <|.. JobseekerSubscriber
+
+enum JobTitle{
+}
+Hide JobTitle members
+
+JobseekerSubscriber *-- JobTitle
+EmployerSubscriber "1" *-- "*" JobTitle
+
+
+
+
+
+
+'
+'class Employer{
+'-jobs: List<Role>
+'-notification: String
+'
+'+getJobs(): List<Role>
+'+setJobs(List<Role>): void
+'-display(): void
+'}
+'
+'note "Concrete Observers" as N1
+'Employer . N1
+'N1 . Jobseeker
+'
+'AgencyClient <|.. Employer
+'AgencyClient <|.. Jobseeker
+'
+'class RecruitmentAgency{
+'-jobseekers: List<Jobseeker>
+'-employers: List<Employers>
+'-notification: String
+'
+'+registerJobseeker(Jobseeker j): void
+'+removeJobseeker(Jobseeker j)): void
+'
+'+registerEmployer(Employer e): void
+'+removeEmployer(Employer e)): void
+'
+'+notifyClients(): void
+'+setNotification(String n): void
+'}
+'
+'interface Agency{
+'
+'+registerJobseeker(Jobseeker j): void
+'+removeJobseeker(Jobseeker j)): void
+'
+'+registerEmployer(Employer e): void
+'+removeEmployer(Employer e)): void
+'
+'+notifyClients(): void
+'+setNotification(String n): void
+'}
+'
+'note "Base Publisher\n- includes subscription management" as N2
+'RecruitmentAgency . N2
+'
+'RecruitmentAgency *--> AgencyClient
+
+@enduml

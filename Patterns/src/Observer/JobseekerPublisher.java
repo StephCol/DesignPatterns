@@ -19,13 +19,8 @@ public class JobseekerPublisher implements AgencyPublisher {
 
         public static void notifyClients(AgencySubscriber client){
             for(AgencySubscriber jobseeker : jobseekers)
-                if(isRelevantNotification(client, jobseeker))
+                if(AgencyPublisher.isRelevantNotification(client, jobseeker))
                     jobseeker.update("New job openings matching your title");
-
-        }
-
-        private static boolean isRelevantNotification(AgencySubscriber employer, AgencySubscriber jobseeker){
-            return ((EmployerSubscriber)employer).getJobs().contains(((JobseekerSubscriber)jobseeker).getRole());
 
         }
 }

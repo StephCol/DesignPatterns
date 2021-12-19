@@ -1,0 +1,48 @@
+@startuml
+
+skinParam classAttributeIconSize 0
+
+class RecruitmentAgency{
+}
+
+interface AgencyPublisher{
++registerClient(AgencySubscriber client): void
+{static} +notifyClients(AgencySubscriber client): void
+{static} +isRelevantNotification(AgencySubscriber employer, AgencySubscriber jobseeker): Boolean
+}
+
+AgencyPublisher <|.. EmployerPublisher
+AgencyPublisher <|.. JobSeekerPublisher
+
+class EmployerPublisher{
+{static}-employers:  List<EmployerSubscriber>
+}
+
+class JobSeekerPublisher{
+{static}- jobseeker:  List<JobseekerSubscriber>
+}
+
+EmployerPublisher <--* EmployerSubscriber
+JobSeekerPublisher <--* JobseekerSubscriber
+
+interface AgencySubscribers{
++update() : void
+}
+
+class EmployerSubscriber{}
+
+class JobseekerSubscriber{}
+
+RecruitmentAgency "1" *--> "*" AgencyPublisher
+
+AgencySubscribers <|.. EmployerSubscriber
+AgencySubscribers <|.. JobseekerSubscriber
+
+enum JobTitle{
+}
+Hide JobTitle members
+
+JobseekerSubscriber *-- JobTitle
+EmployerSubscriber "1" *-- "*" JobTitle
+
+@enduml

@@ -18,17 +18,11 @@ public class EmployerPublisher implements AgencyPublisher {
         employers.add(client);
     }
 
-
     public static void notifyClients(AgencySubscriber client){
         for(AgencySubscriber employer : employers)
-            if(isRelevantNotification(employer, client))
+            if(AgencyPublisher.isRelevantNotification(employer, client))
             employer.update("New " + ((JobseekerSubscriber)client).getRole()
                     + " matching current job opening. Skills include:"
                     + ((JobseekerSubscriber)client).getSkills().toString());
-    }
-
-    private static boolean isRelevantNotification(AgencySubscriber employer, AgencySubscriber jobseeker){
-        return ((EmployerSubscriber)employer).getJobs().contains(((JobseekerSubscriber)jobseeker).getRole());
-
     }
 }
